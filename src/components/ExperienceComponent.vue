@@ -1,10 +1,14 @@
 <template>
-  <div class="card experience-card">
-    <div class="card-body">
-      <h5 class="card-title text-primary">{{ title }}</h5>
-      <p class="card-text">{{ description }}</p>
-      <a :href="link" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">View Project</a>
+  <div class="experience-card">
+    <div class="experience-header">
+      <h3 class="experience-title">{{ title }}</h3>
+      <span class="experience-date">{{ date }}</span>
     </div>
+    <div class="experience-header">
+      <h4 class="experience-company">{{ company }}</h4>
+      <span class="experience-location">{{ location }}</span>
+    </div>
+    <p class="experience-description">{{ description }}</p>
   </div>
 </template>
 
@@ -13,41 +17,64 @@ export default {
   name: 'ExperienceComponent',
   props: {
     title: String,
-    description: String,
-    link: String
+    company: String,
+    location: String,
+    date: String,
+    description: String
   }
 }
 </script>
 
 <style scoped>
-.card {
-  margin: 1.5rem 0; /* Adds a bit more spacing between cards */
-  border: 1px solid #e0e0e0; /* Light border for definition */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
-  border-radius: 0.5rem; /* Rounded corners */
+.experience-card {
+  padding: 1.75rem;
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  background-color: #ffffff;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.card-body {
-  padding: 1.5rem; /* Adds spacing inside the card for better readability */
+.experience-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
 }
 
-.card-title {
-  font-weight: bold; /* Makes the title stand out */
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
 }
 
-.card-text {
-  color: #6c757d; /* Subtle text color for the description */
-  margin-bottom: 1rem; /* Adds spacing between the text and button */
+.experience-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0077b5;
 }
 
-.btn-outline-primary {
-  border-color: #007bff;
-  color: #007bff;
-  font-weight: bold;
+.experience-date {
+  font-size: 0.95rem;
+  color: #888;
 }
 
-.btn-outline-primary:hover {
-  background-color: #007bff;
-  color: white;
+.experience-company {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.experience-location {
+  font-size: 0.95rem;
+  color: #999;
+  margin-bottom: 2rem;
+}
+
+.experience-description {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
 }
 </style>

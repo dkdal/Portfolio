@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
       <h1>Robotics</h1>
       <p>Details about Robotics domain...</p>
     </div>

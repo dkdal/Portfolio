@@ -1,83 +1,57 @@
 <template>
-    <NavbarComponent />
-    <div id="app" class="container">
-      <section id="about" class="section">
-        <h1>ABOUT ME</h1>
-        <div class="about-card">
-          <div class="about-image">
-            <img src="@/assets/linkedInDP.jpeg" alt="About Me" />
-          </div>
-          <div class="about-text">
-            <p>Greeting Everyone! I welcome you all to visit my profile.</p>
-            <p>
-              I am a passionate and promising professional experienced and delivering user centeric products. I have keen interest in technology and have hands-on experience in software development, cloud computing, machine learning, and more. I enjoy working on challenging problems and building scalable, efficient, and innovative solutions.
-            </p>
-          </div>
+  <div id="app" class="container">
+    <section id="about" class="section">
+      <div class="about-card">
+        <div class="about-image">
+          <img src="@/assets/linkedInDP.jpeg" alt="Me"/>
         </div>
-      </section>
-      
-      <SkillsComponent />
-  
-      <DomainsComponent />
-  
-      <section id="experiences" class="section">
-        <h1>WORK EXPERIENCES</h1>
-        <div class="card-grid">
-          <ExperienceComponent
-            v-for="experience in experiences"
-            :key="experience.title"
-            :title="experience.title"
-            :description="experience.description"
-            :link="experience.link"
-          />
+        <div class="about-text">
+          <p>"Fight for it until you own it"</p>
+          <p> Keep Hustling!</p>
+          <p>Cheers!!</p>
+          <span class="nav-link">
+            <a href="/about-me">Read About Me</a>
+          </span>
         </div>
-      </section>
+      </div>
+    </section>
+    
+    <SkillsComponent :skills="skills" />
+    <DomainsComponent />
+
+    <!-- <section id="contact" class="section">
+      <h1>CONTACT</h1>
+      <p>
+        <a href="mailto:dhruv.kapoor@dal.ca">
+          <font-awesome-icon icon="fa-solid fa-envelope" />
+        </a>
+        <a href="https://www.linkedin.com/in/kapoor-dhruv" target="_blank" rel="noopener noreferrer" class="linkedin-icon">
+          <font-awesome-icon :icon="['fab', 'linkedin']" />
+        </a><br><br>
+      </p>
+    </section> -->
+  </div>
+  <FooterComponent />
+</template>
+
   
-      <section id="projects" class="section">
-        <h1>PROJECTS</h1>
-        <div class="card-grid">
-          <ProjectComponent
-            v-for="project in projects"
-            :key="project.title"
-            :title="project.title"
-            :description="project.description"
-            :link="project.link"
-          />
-        </div>
-      </section>
-  
-      <section id="contact" class="section">
-        <h1>CONTACT</h1>
-        <p>
-          <a href="mailto:dhruv.kapoor@dal.ca">
-            <font-awesome-icon icon="fa-solid fa-envelope" />
-          </a>
-          <a href="https://www.linkedin.com/in/kapoor-dhruv" target="_blank" rel="noopener noreferrer" class="linkedin-icon">
-            <font-awesome-icon :icon="['fab', 'linkedin']" />
-          </a><br><br>
-        </p>
-      </section>
-    </div>
-    <FooterComponent />
-  </template>
-  
-  
-  <script>
-  import NavbarComponent from '.././components/NavbarComponent.vue'
+<script>
   import SkillsComponent from '.././components/SkillsComponent.vue'
   import DomainsComponent from '.././components/DomainsComponent.vue'
-  import ExperienceComponent from '.././components/ExperienceComponent.vue'
-  import ProjectComponent from '.././components/ProjectComponent.vue'
   import FooterComponent from '.././components/FooterComponent.vue'
+  import skillsArray from '@/data/skills.js'
   
   export default {
     name: 'HomePage',
+    mounted() {
+      console.log("HomePage mounted");
+    },
+    setup() {
+      console.log("HomePage setup");
+    },
     components: {
-      NavbarComponent,
       SkillsComponent,
       DomainsComponent,
-      ExperienceComponent,
-      ProjectComponent,
       FooterComponent
     },
     data() {
@@ -135,13 +109,14 @@
             description: 'Designed and implemented a machine learning pipeline to analyze over 27,000 customer records using algorithms like SVM, Neural Networks, Naive Bayes, and Logistic Regression.',
             link: 'https://github.com/dkdal/Bank_Customer_Churn_Rate_Prediction_By_ML_Algorithms'
           }
-        ]
+        ],
+        skills: skillsArray
       }
     }
   }
-  </script>
+</script>
   
-  <style>
+<style>
   body {
     color: #343a40;
     margin: 0;
@@ -182,7 +157,7 @@
   }
   
   .about-image img {
-    width: 100%;
+    width: 60%;
     height: auto;
     border-radius: 10px;
   }
@@ -220,10 +195,24 @@
   a:hover {
     color: #0056b3;
   }
-  
+
   .fa-envelope {
     color: red;
     margin-right: 0.5rem;
   }
-  </style>
-  
+
+  .nav-link {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #0056b3;
+  text-decoration: none;
+  padding: 0 5px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #003d80;
+}
+
+
+</style>

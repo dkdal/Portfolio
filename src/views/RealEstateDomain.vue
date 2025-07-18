@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="container">
       <h1>Realtor</h1>
-      <p>Details about RealEstate domain...</p>
+      <p>Learning about Real Estate norms, projects, best ethical practices. Focused on growing network for better deals.</p>
     </div>
   </template>
   
